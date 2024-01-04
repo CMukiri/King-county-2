@@ -21,40 +21,58 @@ Target Variable: Sale price of the house (what we are trying to predict)
 Features: House Attributes
 
 **id**: Unique identifier for each house
+
 **date**: Date the house was sold
+
 **bedrooms**: Number of bedrooms
+
 **bathrooms**: Number of bathrooms
+
 **sqft_living**: Square footage of living space
+
 **sqft_lot**: Square footage of the lot
+
 **floors**: Number of floors
+
 **waterfront**: Boolean indicating waterfront proximity (various categories)
+
 **view**: Quality of view from the house (various categories)
+
 **condition**: Overall condition of the house
+
 **grade**: Overall grade of the house
+
 **sqft_above**: Square footage excluding basement
+
 **sqft_basement**: Square footage of the basement
+
 **yr_built**: Year the house was built
+
 **yr_renovated**: Year the house was renovated
+
 **zipcode**: ZIP code of the house
 
 Location Information:
 
 **lat**: Latitude coordinate
+
 **long**: Longitude coordinate
 
 Neighborhood Features:
 
 **sqft_living15**: Average square footage of living space for nearest 15 neighbors
+
 **sqft_lot15**: Average square footage of the lot size for nearest 15 neighbors
 
 ### Feature Engineering
 
 - We created new features to enhance the analysis:
+  
     - **house_age**: Calculated as (current year - yr_built) to capture the age of the house.
     - **price_per_sqft**: Calculated by dividing price by sqft_living, providing better view of price based on the living space.
     - **season**: Extracted from the **date** feature to capture potential seasonal variations in house prices.
 - We dropped some of the columns that we did not use for the analysis, and only worked with
-        - **date**, **price**, **bedrooms**, **bathrooms**, **sqft_living**, **sqft_lot**, **waterfront**, **condition**, **grade**,                   **yr_built**,**yr_renovated**, **renovated**,**season**, **grade_no**
+        - **date**, **price**, **bedrooms**, **bathrooms**, **sqft_living**, **sqft_lot**, **waterfront**, **condition**, **grade**,**yr_built**,**yr_renovated**, **renovated**,**season**, **grade_no**
 - We addressed the outliers by using the z_score. For the bedrooms feature, we addressed the outlier by filtering out the house data containing this outlier 33 bedrooms.
 
 ## Model Training and Evaluation
